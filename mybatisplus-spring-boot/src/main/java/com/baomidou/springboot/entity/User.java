@@ -2,7 +2,6 @@ package com.baomidou.springboot.entity;
 
 import java.io.Serializable;
 
-
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 
@@ -18,7 +17,7 @@ public class User implements Serializable {
 
 	/** 主键ID */
 	@TableId(value = "test_id")
-	private Long testId;
+	private Long id;
 
 	/** 名称 */
 	private String name;
@@ -30,19 +29,25 @@ public class User implements Serializable {
 	@TableField(value = "test_type")
 	private Integer testType;
 
-	/**  */
 	private Long role;
-
-	/**  */
 	private String phone;
 
-
-	public Long getTestId() {
-		return this.testId;
+	public User() {
 	}
 
-	public void setTestId(Long testId) {
-		this.testId = testId;
+	public User(Long id, String name, Integer age, Integer testType) {
+		this.id = id;
+		this.name = name;
+		this.age = age;
+		this.testType = testType;
+	}
+
+	public Long getId() {
+		return this.id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -85,4 +90,9 @@ public class User implements Serializable {
 		this.phone = phone;
 	}
 
+	@Override
+	public String toString() {
+		return "User{" + "id=" + id + ", name='" + name + '\'' + ", age=" + age + ", testType=" + testType + ", role="
+				+ role + ", phone=" + phone + '}';
+	}
 }
