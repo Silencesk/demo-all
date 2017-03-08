@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mine.demo.mybatisplus.mapper.UserMapper">
+	<resultMap id="BaseResultMap" type="com.mine.demo.mybatisplus.entity.User" >
+		<id column="id" property="id" jdbcType="INTEGER" />
+	</resultMap>
 
 	<!-- 通用查询结果列 -->
 	<sql id="Base_Column_List">
 		test_id AS testId, name, age, test_type AS testType, role, phone
 	</sql>
+
+	<select id="selectOne" resultType="com.mine.demo.mybatisplus.vo.RoleVO" parameterType="java.lang.Long" >
+		SELECT
+		id,role_name,enable_flag
+		FROM role
+		WHERE id = #{id,jdbcType=INTEGER}
+	</select>
 
 </mapper>

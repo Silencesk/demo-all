@@ -1,7 +1,7 @@
 package com.mine.demo.mybatisplus.config;
 
-import javax.sql.DataSource;
-
+import com.baomidou.mybatisplus.plugins.PaginationInterceptor;
+import com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean;
 import org.apache.ibatis.mapping.DatabaseIdProvider;
 import org.apache.ibatis.plugin.Interceptor;
 import org.mybatis.spring.boot.autoconfigure.MybatisProperties;
@@ -14,8 +14,7 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
-import com.baomidou.mybatisplus.plugins.PaginationInterceptor;
-import com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean;
+import javax.sql.DataSource;
 
 @Configuration
 public class MybatisPlusConfig {
@@ -56,7 +55,12 @@ public class MybatisPlusConfig {
 		if (StringUtils.hasText(this.properties.getConfigLocation())) {
 			mybatisPlus.setConfigLocation(this.resourceLoader.getResource(this.properties.getConfigLocation()));
 		}
-		mybatisPlus.setConfiguration(properties.getConfiguration());
+
+		// 增加属性下划线转小驼峰的配置
+		org.apache.ibatis.session.Configuration configuration = new org.apache.ibatis.session.Configuration();
+		configuration.setMapUnderscoreToCamelCase(true);
+		mybatisPlus.setConfiguration(configuration);
+
 		if (!ObjectUtils.isEmpty(this.interceptors)) {
 			mybatisPlus.setPlugins(this.interceptors);
 		}

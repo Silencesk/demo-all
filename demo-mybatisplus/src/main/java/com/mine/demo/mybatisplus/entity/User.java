@@ -20,7 +20,6 @@ public class User implements Serializable {
 	private Long id;
 
 	/** 名称 */
-	@TableId
 	private String name;
 
 	/** 年龄 */
