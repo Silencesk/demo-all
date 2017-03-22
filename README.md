@@ -9,3 +9,7 @@ from [baomidou/mybatisplus-spring-boot](https://github.com/baomidou/mybatisplus-
 ## demo-mapper
 Mapper的的demo工程，基于spring-boot  
 from [abel533/MyBatis-Spring-Boot](https://github.com/abel533/MyBatis-Spring-Boot)
+
+# docs
+文档
++ [MybatisPlus与Mapper技术选型](docs/MybatisPlus与Mapper技术选型.md)
