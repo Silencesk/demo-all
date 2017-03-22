@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mine.demo.mybatisplus.mapper.RoleMapper" >
+
   <resultMap id="BaseResultMap" type="com.mine.demo.mybatisplus.entity.Role" >
     <id column="id" property="id" jdbcType="INTEGER" />
   </resultMap>
@@ -10,15 +11,15 @@
   </sql>
 
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    SELECT 
-    id,role_name
+    SELECT
+    id,role_name, enable_flag
     FROM role
     WHERE id = #{id,jdbcType=INTEGER}
   </select>
 
   <select id="selectOne" resultType="com.mine.demo.mybatisplus.vo.RoleVO" parameterType="java.lang.Integer" >
     SELECT
-    id,role_name,enable_flag
+    id,role_name, enable_flag
     FROM role
     WHERE id = #{id,jdbcType=INTEGER}
   </select>

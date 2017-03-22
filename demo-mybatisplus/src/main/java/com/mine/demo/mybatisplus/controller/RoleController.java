@@ -3,6 +3,7 @@ package com.mine.demo.mybatisplus.controller;
 import com.google.common.collect.Maps;
 import com.mine.demo.mybatisplus.entity.Role;
 import com.mine.demo.mybatisplus.service.RoleService;
+import com.mine.demo.mybatisplus.vo.RoleVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,7 +24,8 @@ public class RoleController {
 	public Role test1() {
 		Role m = service.selectByPrimaryKey(1);
 		System.err.println("查询实体：" + m);
-		System.err.println("查询VO：" + service.selectOne(1));
+		RoleVO vo = service.selectOne(1);
+		System.err.println("查询VO：" + vo);
 		return m;
 	}
 

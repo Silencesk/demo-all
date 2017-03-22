@@ -4,9 +4,9 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@MapperScan("com.mine.demo.mybatisplus.mapper*")
+@MapperScan("com.mine.demo.mybatisplus.mapper")
 @SpringBootApplication
-public class Application {
+public class MybatisApplication {
 
 	/**
 	 * <p>
@@ -17,7 +17,7 @@ public class Application {
 	 * </p>
 	 */
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(MybatisApplication.class, args);
 	}
 
 }

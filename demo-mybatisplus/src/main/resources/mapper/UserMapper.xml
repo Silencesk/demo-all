@@ -12,7 +12,7 @@
 
 	<select id="selectOne" resultType="com.mine.demo.mybatisplus.vo.RoleVO" parameterType="java.lang.Long" >
 		SELECT
-		id,role_name,enable_flag
+		id,role_name
 		FROM role
 		WHERE id = #{id,jdbcType=INTEGER}
 	</select>
